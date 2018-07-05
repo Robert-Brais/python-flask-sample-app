@@ -1,0 +1,11 @@
+sudo: required
+
+language: python
+
+services:
+	- docker
+
+before_install:
+-docker build . -t minitwit
+-docker run -p 5000:5000 minitwit
+-docker run minitwit python setup.py test
